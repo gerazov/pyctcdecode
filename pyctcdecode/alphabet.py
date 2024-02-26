@@ -35,9 +35,9 @@ def _normalize_regular_alphabet(labels: List[str]) -> List[str]:
     """Normalize non-bpe labels to alphabet for decoder."""
     normalized_labels = labels[:]
     # substitute space characters
-    if "|" in normalized_labels and " " not in normalized_labels:
-        logger.info("Found '|' in vocabulary but not ' ', doing substitution.")
-        normalized_labels[normalized_labels.index("|")] = " "
+    if "/" in normalized_labels and " " not in normalized_labels:
+        logger.info("Found '/' in vocabulary but not ' ', doing substitution.")
+        normalized_labels[normalized_labels.index("/")] = " "
     # substituted ctc blank char
     for n, label in enumerate(normalized_labels):
         if BLANK_TOKEN_PTN.match(label):
